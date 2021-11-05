@@ -6,21 +6,35 @@
 import random
 
 def get_number_of_rolls():
-    rolls = input("Enter the # of rolls: ")
-    if rolls.isdigit() == False:
-        print ("Invalid input")
+    return (int(input("Enter the # of rolls: ")))
+
+def get_roll_dice(roll1, roll2):
+    return roll1 + roll2
+
+def get_print_histogram(index_list):
+    for i in range(11):
+        print("\n")
+        for j in range(i + 1):
+            print ("*", end = " ")
+    print()
+
+def main():
+    rolls = get_number_of_rolls()
+    if rolls < 0:
+        print("Invalid input")
         get_number_of_rolls()
 
-def roll_dice(roll1, roll2, rolls):
+    index_list = [0,0,0,0,0,0,0,0,0,0,0]
+
     count = 0
-    while count < rolls
-    roll1 = random.randint(1, 6)
-    roll2 = random.randint(1, 6)
-    sum_of_dice = roll1 + roll2
-    return sum_of_dice
+    while count < rolls:
+        roll1 = (random.randint(1, 6))
+        roll2 = (random.randint(1, 6))
+        count += 1
+        dice_sum = get_roll_dice(roll1, roll2)
+        index_list[dice_sum - 2] += 1
+    print(index_list)
+    get_print_histogram(index_list)
 
-#def create_histogram():
-#    index_list = [2,3,4,5,6,7,8,9,10,11,12]
+main()
 
-#def print_histogram():
-#    for __ in range __ :
