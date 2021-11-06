@@ -6,27 +6,23 @@
 import random
 
 def get_number_of_rolls():
-    return (int(input("Enter the # of rolls: ")))
+    while True:
+        r = input("Enter the # of rolls: ")
+        if r.isdigit():
+            break
+    return int(r)
 
 def get_roll_dice(roll1, roll2):
     return roll1 + roll2
 
 def get_print_histogram(index_list):
-    for i in range(11):
-        print("\n")
-        for j in range(i + 1):
-            print ("*", end = " ")
-    print()
+    for i in range(len(index_list)):
+        print(i, "\t","*" * index_list[i])
 
 def main():
-    rolls = get_number_of_rolls()
-    if rolls < 0:
-        print("Invalid input")
-        get_number_of_rolls()
-
     index_list = [0,0,0,0,0,0,0,0,0,0,0]
-
     count = 0
+    rolls = get_number_of_rolls()
     while count < rolls:
         roll1 = (random.randint(1, 6))
         roll2 = (random.randint(1, 6))
